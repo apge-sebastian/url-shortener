@@ -6,13 +6,7 @@ class RedisClient {
 
     constructor() {
         this.#client = createClient({
-            username: process.env.REDIS_USERNAME,
-            password: process.env.REDIS_PASSWORD,
-            socket: {
-                host: process.env.REDIS_HOST,
-                port: process.env.REDIS_PORT,
-                database: process.env.REDIS_DB,
-            },
+            url: process.env.REDIS_URL,
         });
 
         this.#client.on('error', (err) => {
