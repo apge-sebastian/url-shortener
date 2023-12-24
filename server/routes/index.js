@@ -14,7 +14,7 @@ router.get('/:urlCode', async (req, res) => {
     try {
         const foundUrl = await db.get(urlCode);
         if (foundUrl) {
-            res.json({ originalUrl: foundUrl });
+            res.status(200).json({ originalUrl: foundUrl });
         } else {
             res.status(404).json({ error: 'Shortened URL not found' });
         }
@@ -41,7 +41,7 @@ router.post('/shorten', async (req, res) => {
             await db.set(urlCode, originalUrl);
         }
 
-        res.json({ urlCode });
+        res.status(200).json({ urlCode });
     } catch (err) {
         console.error('Error shortening URL:', err);
         res.status(500).json({ error: 'Internal server error' });
