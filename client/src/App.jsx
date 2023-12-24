@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { TextField, Button, Box, Typography, InputAdornment } from '@mui/material';
 import './App.css';
-import { getEnvVars } from '../env';
 
-const { VITE_API_URL } = getEnvVars();
+const { VITE_API_URL } = import.meta.env;
 function App() {
     const [originalUrl, setOriginalUrl] = useState('');
     const [shortenedUrl, setShortenedUrl] = useState('');

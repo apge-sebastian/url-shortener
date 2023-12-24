@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { getEnvVars } from '../../env';
 
-const { VITE_API_URL } = getEnvVars();
+const { VITE_API_URL } = import.meta.env;
 export default function RedirectPage() {
     const location = useLocation();
 
